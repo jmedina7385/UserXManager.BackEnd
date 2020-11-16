@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApplicationCoreContext))]
-    [Migration("20201112211616_InitialMigrations")]
-    partial class InitialMigrations
+    [Migration("20201116162847_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -29,10 +29,14 @@ namespace Data.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("EmployeeLastName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("EmployeeName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(25)
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<DateTime>("PermissionDate")
                         .HasColumnType("datetime2");
@@ -55,11 +59,35 @@ namespace Data.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
                     b.ToTable("PermissionTypes");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "In Service"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "On Leave"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "On Vacation"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Description = "On Leave"
+                        });
                 });
 
             modelBuilder.Entity("Core.Permission", b =>
