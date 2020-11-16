@@ -48,8 +48,8 @@ namespace UserXManager.Controllers
         public async Task<string> DeletePermission([FromBody] Permission permission)
         {
             _permissionService.DeletePermission(permission);
-            var Ok = $"{permission.Id} Deleted";
-            return await Task.FromResult(Ok);
+            var ok = $"{permission.Id} Deleted";
+            return await Task.FromResult(ok);
         }
     }
 }

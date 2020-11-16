@@ -54,11 +54,9 @@ namespace UserXManager.Controllers
                 return await Task.FromResult(failed);
             }
 
-            ;
-
             _permissionService.DeletePermission(permission);
-            var Ok = $"{permission.Id} Deleted";
-            return await Task.FromResult(Ok);
+            var ok = $"{permission.Id} Deleted";
+            return await Task.FromResult(ok);
         }
     }
 }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApplicationCoreContext))]
-    [Migration("20201116162847_InitialMigration")]
+    [Migration("20201116171148_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,11 +82,6 @@ namespace Data.Migrations
                         {
                             Id = 3,
                             Description = "On Vacation"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Description = "On Leave"
                         });
                 });
 

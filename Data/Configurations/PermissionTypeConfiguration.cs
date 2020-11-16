@@ -27,11 +27,6 @@ namespace Data.Configurations
                 {
                     Id = 3,
                     Description = "On Vacation"
-                },
-                new PermissionType
-                {
-                    Id = 4,
-                    Description = "On Leave"
                 }
             });
         }

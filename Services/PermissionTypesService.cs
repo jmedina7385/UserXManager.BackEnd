@@ -18,7 +18,7 @@ namespace Services
 
         public void AddPermission(PermissionType permission)
         {
-            var update = permission.Id > 0 ? true : false;
+            var update = permission.Id > 0;
 
             _dataManager.PermissionTypes.Add(permission, update);
             _dataManager.JobDone();
